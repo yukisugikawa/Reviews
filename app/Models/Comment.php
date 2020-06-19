@@ -9,8 +9,8 @@ class Comment extends Model
     /**
      * このコメントを所有するreviewを取得
      */
-    public function review()
+    public function post()
     {
-        return $this->belongsTo('App\Models\review');
+        return $this->belongsTo('App\Models\post');
     }
 }
