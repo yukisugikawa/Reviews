@@ -15,10 +15,10 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger( 'user_id')
+            $table->bigInteger('user_id')
                   ->constrained()
                   ->onDelete('cascade');// userが削除されたとき、それに関連するlikeも一気に削除される
-            $table->bigInteger('review_id')
+            $table->bigInteger('post_id')
                   ->constrained()
                   ->onDelete('cascade');// postが削除されたとき、それに関連するlikeも一気に削除される
             $table->timestamps();
