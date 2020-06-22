@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Model\Post;
+use App\Models\Post;
 use Auth;
 
 class PostsController extends Controller
@@ -19,7 +19,7 @@ class PostsController extends Controller
     {
       $post = Post::findOrFail($id); // findOrFail 見つからなかった時の例外処理
 
-    //   投稿のlikeテーブルにある現在ログインしているuser_idを取得してます。
+    //   投稿のlikeテーブルにある現在ログインしているuser_idを取得
       $like = $post->likes()->where('user_id', Auth::user()->id)->first();
 
       return view('posts.show')->with(array('post' => $post, 'like' => $like));
